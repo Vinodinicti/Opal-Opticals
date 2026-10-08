@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, MessageSquare, Send, CheckCircle2, Sparkles } from 'lucide-react';
 import { storeInfo, faqs } from '../data/servicesData';
+import { saveBooking } from '../data/bookingStorage';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
@@ -9,6 +10,16 @@ export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim()) return;
+
+    saveBooking({
+      name: formData.name,
+      phone: formData.phone,
+      service: 'General Concierge Enquiry',
+      date: new Date().toISOString().split('T')[0],
+      type: 'contact',
+      notes: formData.message || 'Direct enquiry from contact page'
+    });
+
     setSubmitted(true);
   };
 

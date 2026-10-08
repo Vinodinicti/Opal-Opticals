@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import FrameQuickViewModal from './components/FrameQuickViewModal';
 import EnquiryModal from './components/EnquiryModal';
+import AdminModal from './components/AdminModal';
 
 import HomePage from './pages/HomePage';
 import FramesPage from './pages/FramesPage';
@@ -14,6 +15,7 @@ import ContactPage from './pages/ContactPage';
 export default function App() {
   const [activePage, setActivePage] = useState('home');
   const [quickViewFrame, setQuickViewFrame] = useState(null);
+  const [adminOpen, setAdminOpen] = useState(false);
   const [modalState, setModalState] = useState({
     isOpen: false,
     mode: 'booking',
@@ -93,6 +95,7 @@ export default function App() {
       <Footer
         setActivePage={setActivePage}
         onOpenBooking={() => openBookingModal()}
+        onOpenAdmin={() => setAdminOpen(true)}
       />
 
       {/* Floating WhatsApp Widget */}
@@ -115,6 +118,12 @@ export default function App() {
           onClose={closeModal}
         />
       )}
+
+      {/* Boutique Admin Modal & Dashboard */}
+      <AdminModal
+        isOpen={adminOpen}
+        onClose={() => setAdminOpen(false)}
+      />
     </div>
   );
 }

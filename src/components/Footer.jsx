@@ -12,11 +12,12 @@ import {
   Phone, 
   Mail, 
   ArrowRight,
-  Clock
+  Clock,
+  Glasses
 } from 'lucide-react';
 import { storeInfo } from '../data/servicesData';
 
-export default function Footer({ setActivePage, onOpenBooking }) {
+export default function Footer({ setActivePage, onOpenBooking, onOpenAdmin }) {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
   const currentYear = new Date().getFullYear();
@@ -230,6 +231,20 @@ export default function Footer({ setActivePage, onOpenBooking }) {
                 <FileText className="w-3 h-3 text-black" />
                 <span>Terms & Conditions</span>
               </button>
+
+              {onOpenAdmin && (
+                <>
+                  <span className="text-black/30">•</span>
+                  <button
+                    onClick={onOpenAdmin}
+                    className="p-1 rounded-full text-black/50 hover:text-black hover:bg-black/5 transition-all flex items-center justify-center"
+                    title="Staff Atelier Access"
+                    aria-label="Staff Login"
+                  >
+                    <Glasses className="w-3.5 h-3.5" />
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>

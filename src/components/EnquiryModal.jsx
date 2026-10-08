@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, CheckCircle2, MessageSquare, Calendar } from 'lucide-react';
 import { storeInfo, opticalServices } from '../data/servicesData';
+import { saveBooking } from '../data/bookingStorage';
 
 export default function EnquiryModal({ initialData, mode = 'booking', onClose }) {
   const [formData, setFormData] = useState({
@@ -15,6 +16,17 @@ export default function EnquiryModal({ initialData, mode = 'booking', onClose })
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim()) return;
+
+    // Save to localStorage so it immediately reflects in the admin dashboard
+    saveBooking({
+      name: formData.name,
+      phone: formData.phone,
+      service: formData.service,
+      date: formData.date,
+      type: mode === 'booking' ? 'eye-test' : 'enquiry',
+      notes: mode === 'booking' ? '21-Step Eye Health Check' : `Inquiry for ${initialData?.name || 'Frame'}`
+    });
+
     setSubmitted(true);
   };
 
