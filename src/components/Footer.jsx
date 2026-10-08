@@ -109,102 +109,110 @@ export default function Footer({ setActivePage, onOpenBooking, onOpenAdmin }) {
               </div>
             </div>
 
-            {/* Column 2: Quick Links (Compact 2-col on mobile, vertical on desktop) */}
-            <div className="md:col-span-3 space-y-2 sm:space-y-3 pt-1 sm:pt-0">
-              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-black/50 block">
-                Quick Links
-              </span>
-              <ul className="grid grid-cols-3 sm:grid-cols-1 gap-2 text-[11px] sm:text-xs font-bold text-black">
-                <li>
-                  <button 
-                    onClick={() => handleNav('home')} 
-                    className="hover:text-sky-800 transition-colors"
-                  >
-                    Home
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => handleNav('frames')} 
-                    className="hover:text-sky-800 transition-colors"
-                  >
-                    Frames
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => handleNav('lenses')} 
-                    className="hover:text-sky-800 transition-colors"
-                  >
-                    Lenses
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => handleNav('services')} 
-                    className="hover:text-sky-800 transition-colors"
-                  >
-                    Services
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => handleNav('contact')} 
-                    className="hover:text-sky-800 transition-colors"
-                  >
-                    Contact
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={onOpenBooking} 
-                    className="hover:underline flex items-center gap-1 font-bold text-sky-900"
-                  >
-                    <span>Book Test</span>
-                    <ArrowRight className="w-2.5 h-2.5" />
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 3: Boutique & Address (4 cols) */}
-            <div className="md:col-span-4 space-y-2 sm:space-y-3 text-[11px] sm:text-xs font-semibold text-black/85 pt-1 sm:pt-0">
-              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-black/50 block">
-                Boutique & Clinic
-              </span>
+            {/* Columns 2 & 3: Mobile 2-column split (Links on one side, Details on other side) / Desktop 7 cols */}
+            <div className="md:col-span-7 grid grid-cols-2 md:grid-cols-7 gap-4 sm:gap-6 lg:gap-8 items-start pt-1 sm:pt-0">
               
-              <div className="space-y-1.5 sm:space-y-2.5">
-                <div className="flex items-start gap-1.5 sm:gap-2 max-w-xs">
-                  <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black shrink-0 mt-0.5" />
-                  <span className="leading-snug">{storeInfo.address}, {storeInfo.city}</span>
+              {/* Left Side (Links): 1 col on mobile, 3 cols on desktop */}
+              <div className="col-span-1 md:col-span-3 space-y-2 sm:space-y-3">
+                <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-black/50 block">
+                  Quick Links
+                </span>
+                <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs font-bold text-black">
+                  <li>
+                    <button 
+                      onClick={() => handleNav('home')} 
+                      className="hover:text-sky-800 transition-colors text-left"
+                    >
+                      Home
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={() => handleNav('frames')} 
+                      className="hover:text-sky-800 transition-colors text-left"
+                    >
+                      Frames
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={() => handleNav('lenses')} 
+                      className="hover:text-sky-800 transition-colors text-left"
+                    >
+                      Lenses
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={() => handleNav('services')} 
+                      className="hover:text-sky-800 transition-colors text-left"
+                    >
+                      Services
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={() => handleNav('contact')} 
+                      className="hover:text-sky-800 transition-colors text-left"
+                    >
+                      Contact
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={onOpenBooking} 
+                      className="hover:underline flex items-center gap-1 font-bold text-sky-900 pt-0.5 text-left"
+                    >
+                      <span>Book Test</span>
+                      <ArrowRight className="w-2.5 h-2.5" />
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Right Side (Details): 1 col on mobile, 4 cols on desktop */}
+              <div className="col-span-1 md:col-span-4 space-y-2 sm:space-y-3 text-[11px] sm:text-xs font-semibold text-black/85">
+                <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-black/50 block">
+                  Boutique & Clinic
+                </span>
+                
+                <div className="space-y-2 sm:space-y-2.5">
+                  <div className="flex items-start gap-1.5 sm:gap-2">
+                    <MapPin className="w-3.5 h-3.5 text-black shrink-0 mt-0.5" />
+                    <span className="leading-snug text-[10px] sm:text-xs">{storeInfo.address}, {storeInfo.city}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <Phone className="w-3.5 h-3.5 text-black shrink-0" />
+                    <a href={`tel:${storeInfo.phone}`} className="hover:underline font-bold text-black text-[10px] sm:text-xs">
+                      {storeInfo.phone}
+                    </a>
+                  </div>
+                  <div className="flex items-start gap-1.5 sm:gap-2">
+                    <Clock className="w-3.5 h-3.5 text-black shrink-0 mt-0.5" />
+                    <div className="leading-snug text-[10px] sm:text-xs">
+                      <div>Mon–Sat: 9:30 AM – 8:30 PM</div>
+                      <div className="text-black/70">Sun: 11 AM – 6 PM</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black shrink-0" />
-                  <a href={`tel:${storeInfo.phone}`} className="hover:underline font-bold text-black">
-                    {storeInfo.phone}
-                  </a>
-                </div>
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black shrink-0" />
-                  <span>Mon–Sat: 9:30 AM – 8:30 PM | Sun: 11 AM – 6 PM</span>
+
+                <div className="pt-1 hidden sm:block">
+                  <button
+                    onClick={onOpenBooking}
+                    className="px-4 py-2 rounded-full bg-black text-white hover:bg-slate-900 transition-all text-xs font-black shadow-xs flex items-center gap-1.5 active:scale-95"
+                  >
+                    <span>Book Free Eye Test</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
 
-              <div className="pt-1 hidden sm:block">
-                <button
-                  onClick={onOpenBooking}
-                  className="px-4 py-2 rounded-full bg-black text-white hover:bg-slate-900 transition-all text-xs font-black shadow-xs flex items-center gap-1.5 active:scale-95"
-                >
-                  <span>Book Free Eye Test</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
             </div>
 
           </div>
 
           {/* Bottom Bar: Copyright, Currency & Legal Policies */}
-          <div className="pt-3.5 sm:pt-5 pb-1 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 text-[10px] sm:text-[11px] font-semibold text-black/75 sm:pr-32">
+          <div className="pt-3.5 sm:pt-5 pb-1 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 text-[10px] sm:text-[11px] font-semibold text-black/75 pr-16 sm:pr-32">
             <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
               <span>© {currentYear} Opal Opticals</span>
               <span>•</span>
