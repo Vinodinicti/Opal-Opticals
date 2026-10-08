@@ -208,8 +208,6 @@ export default function Footer({ setActivePage, onOpenBooking, onOpenAdmin }) {
             <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
               <span>© {currentYear} Opal Opticals</span>
               <span>•</span>
-              <span>₹ INR</span>
-              <span>•</span>
               <span>Bengaluru, India</span>
             </div>
 
