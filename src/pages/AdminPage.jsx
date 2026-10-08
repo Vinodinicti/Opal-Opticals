@@ -110,18 +110,10 @@ export default function AdminPage({ setActivePage }) {
   });
 
   return (
-    <div className={`min-h-screen text-black flex flex-col selection:bg-black selection:text-white ${
-      !isAuthenticated 
-        ? 'bg-gradient-to-b from-[#A9CCE9] via-[#C7E1F4] to-[#EDF6FC]' 
-        : 'bg-slate-50'
-    }`}>
+    <div className="min-h-screen text-black flex flex-col selection:bg-black selection:text-white bg-gradient-to-b from-[#A9CCE9] via-[#C7E1F4] to-[#EDF6FC]">
       
       {/* Top Professional Admin Bar */}
-      <header className={`sticky top-0 z-40 backdrop-blur-md border-b transition-colors ${
-        !isAuthenticated 
-          ? 'bg-white/80 border-sky-200/80 shadow-xs' 
-          : 'bg-white/95 border-slate-200 shadow-xs'
-      }`}>
+      <header className="sticky top-0 z-40 backdrop-blur-md border-b bg-white/85 border-sky-200/80 shadow-xs transition-colors">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-2">
           
           {/* Brand & Page Identifier */}
@@ -276,7 +268,7 @@ export default function AdminPage({ setActivePage }) {
                 <h2 className="text-xl sm:text-3xl font-black text-black tracking-tight">
                   Appointment Reservations
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium pt-0.5">
+                <p className="text-xs sm:text-sm text-slate-800 font-medium pt-0.5">
                   Direct live stream of customer eye examinations and frame styling consultations.
                 </p>
               </div>
@@ -549,7 +541,7 @@ export default function AdminPage({ setActivePage }) {
       </main>
 
       {/* Simple Admin Footer */}
-      <footer className="bg-white border-t border-slate-200 py-3.5 text-center text-[11px] sm:text-xs text-slate-500 font-medium px-4">
+      <footer className="bg-white/85 backdrop-blur-sm border-t border-sky-200/80 py-3.5 text-center text-[11px] sm:text-xs text-slate-700 font-medium px-4">
         Opal Opticals • Atelier Clinical Management Portal • Bengaluru, India
       </footer>
 
