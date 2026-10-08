@@ -54,7 +54,7 @@ export default function AdminPage({ setActivePage }) {
       setErrorMsg('');
       refreshData();
     } else {
-      setErrorMsg('Incorrect username or password. Default is admin / opal123');
+      setErrorMsg('Invalid username or password. Please try again.');
     }
   };
 
@@ -143,7 +143,7 @@ export default function AdminPage({ setActivePage }) {
                   </span>
                 </div>
                 <p className="text-[10px] text-slate-500 font-medium pt-0.5">
-                  Indiranagar Flagship • Local Storage Engine
+                  Indiranagar Flagship Atelier
                 </p>
               </div>
             </div>
@@ -213,7 +213,7 @@ export default function AdminPage({ setActivePage }) {
                       required
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
-                      placeholder="admin"
+                      placeholder="Enter staff username"
                       className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm text-black placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent font-medium shadow-xs"
                     />
                   </div>
@@ -251,10 +251,6 @@ export default function AdminPage({ setActivePage }) {
                 </button>
               </form>
 
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-600 font-medium">
-                Default Credentials: <strong className="text-black">admin</strong> / <strong className="text-black">opal123</strong>
-              </div>
-
             </div>
           </div>
         ) : (
@@ -268,15 +264,8 @@ export default function AdminPage({ setActivePage }) {
                   Appointment Reservations
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium pt-0.5">
-                  Direct live stream of customer eye examinations and frame enquiries saved in local storage.
+                  Direct live stream of customer eye examinations and frame styling consultations.
                 </p>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Local Storage Active</span>
-                </span>
               </div>
             </div>
 
