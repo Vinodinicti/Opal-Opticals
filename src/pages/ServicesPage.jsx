@@ -163,14 +163,14 @@ export default function ServicesPage({ onOpenBooking }) {
       
       {/* ================= CLINICAL SERVICES HERO SECTION ================= */}
       <section className="relative pt-36 pb-24 sm:pt-40 sm:pb-32 overflow-hidden bg-gradient-to-b from-sky-100 via-sky-50 to-[#EDF6FC]">
-        {/* Hero Background Image with Increased Opacity - Zoomed out, centered & feathered */}
+        {/* Hero Background Image with Higher Opacity & Vivid Clarity */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
           <img 
             src="/services-hero-bg.jpg" 
             alt="Clinical Care & Optical Services Examination" 
-            className="w-full h-full object-cover object-[center_28%] translate-y-4 sm:translate-y-8 scale-90 sm:scale-85 lg:scale-[0.80] opacity-80 sm:opacity-85 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_80%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_80%)] transition-all duration-700" 
+            className="w-full h-full object-cover object-[center_30%] opacity-90 sm:opacity-95 transition-all duration-700" 
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/30 to-[#EDF6FC]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/20 to-[#EDF6FC]/90" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
